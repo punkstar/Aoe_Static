@@ -66,9 +66,9 @@ sub vcl_fetch {
 		remove beresp.http.Pragma;
 		set beresp.http.Cache-Control = "public";
 		set beresp.grace = 2m;
-		set beresp.http.X_AOESTATIC_FETCH = "Removed cookie in vcl_fetch";
+		set beresp.http.X-Aoestatic-Fetch = "Removed cookie in vcl_fetch";
 	} else {
-		set beresp.http.X_AOESTATIC_FETCH = "Nothing removed";
+		set beresp.http.X-Aoestatic-Fetch = "Nothing removed";
 	}
 
 	# Some known-static file types
