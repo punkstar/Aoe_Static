@@ -21,6 +21,10 @@ class Aoe_Static_Helper_Data extends Mage_Core_Helper_Abstract
                    Mage::getStoreConfig('system/aoe_static/cache_actions'), 
                    $match);
         
-        return intval($match['lifetime']);
+        if (array_key_exists('lifetime', $match) && $match['lifetime'] > 0) {
+            return intval($match['lifetime']);
+        } else {
+            return false;
+        }
 	}
 }
